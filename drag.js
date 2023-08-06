@@ -31,7 +31,7 @@ Lanes.forEach(lane => {
 });
 
 // Handle touch events for mobile devices
-container.addEventListener('touchmove', (e) => {
+container.addEventListener('touchstart', (e) => {
   e.preventDefault();
 });
 
