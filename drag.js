@@ -30,6 +30,18 @@ Lanes.forEach(lane => {
   });
 });
 
+// Handle touch events for mobile devices
+container.addEventListener('touchmove', (e) => {
+  e.preventDefault();
+});
+
+container.addEventListener('touchend', (e) => {
+  if (draggedItem) {
+    container.appendChild(draggedItem);
+    draggedItem = null;
+  }
+});
+
 
 
 
