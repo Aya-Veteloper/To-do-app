@@ -10,15 +10,21 @@ form.addEventListener("submit", (e) => {
 
   const newTask = document.createElement("p");
   newTask.classList.add("task");
-  newTask.setAttribute("draggable", "true");
+  newTask.draggable = true;
   newTask.innerText = value;
 
-  newTask.addEventListener("dragstart", () => {
-    newTask.classList.add("is-dragging");
+  newTask.addEventListener('dragstart', (e) => {
+    draggedItem = newTask;
+    setTimeout(() => {
+      newTask.style.display = 'none';
+    }, 0);
   });
 
-  newTask.addEventListener("dragend", () => {
-    newTask.classList.remove("is-dragging");
+  newTask.addEventListener('dragend', () => {
+    setTimeout(() => {
+      newTask.style.display = 'block';
+      draggedItem = null;
+    }, 0);
   });
 
   todoLane.appendChild(newTask);
